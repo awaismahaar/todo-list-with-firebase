@@ -29,7 +29,9 @@ const Todo = () => {
   const {user} = useAuth();
 
   useEffect(() => {
-    if (!user) return;
+    if (!user?.uid) return;
+    // console.log('user',user);
+    
     const q = query(
       collection(db, "users", user.uid, "todos"),
       orderBy("createdAt", "asc")

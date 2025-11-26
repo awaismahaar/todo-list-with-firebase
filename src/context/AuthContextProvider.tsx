@@ -10,11 +10,14 @@ export default function AuthContextProvider({
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    auth.onAuthStateChanged(async (user) => {
+    const unsub = auth.onAuthStateChanged(async (user) => {
       if (user) {
+        console.log("user", user);
         const snap = await getDoc(doc(db, "users", user.uid));
         if (snap.exists()) {
-          setUser(snap.data() as User);
+          const data = snap.data() as User;
+          console.log("data", data);
+          setUser({ ...data, uid: user.uid });
           setLoading(false);
         }
       } else {
@@ -22,6 +25,7 @@ export default function AuthContextProvider({
         setLoading(false);
       }
     });
+    return () => unsub();
   }, []);
   return (
     <AuthContext.Provider value={{ user, setUser, loading }}>
