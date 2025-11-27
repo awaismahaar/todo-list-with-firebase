@@ -1,16 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Spinner } from "@/components/ui/spinner";
-import { auth } from "@/firebase";
+import { auth } from "@/lib/firebase";
 import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Todo from "./Todo";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContextProvider";
 
 const Home = () => {
   const navigate = useNavigate();
   const { user, setUser} = useAuth();
+  console.log(123);
+  
 
   const handleLogout = async () => {
     try {
@@ -41,8 +43,8 @@ const Home = () => {
                   alt="user logo"
                   src={
                     user.photoURL
-                      ? user.photoURL
-                      : "https://www.citypng.com/public/uploads/preview/hd-profile-user-round-blue-icon-symbol-transparent-png-701751695033492ww0i0raud4.png"
+                    ? user.photoURL
+                    : "https://www.citypng.com/public/uploads/preview/hd-profile-user-round-blue-icon-symbol-transparent-png-701751695033492ww0i0raud4.png"
                   }
                   className="w-full h-full object-cover rounded-full"
                 />

@@ -15,7 +15,7 @@ import { useState, type FormEvent } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "@/firebase";
+import { db } from "@/lib/firebase";
 import { loginWithGoogle } from "@/utils/loginWithGoogle";
 import type { UserCredential } from "firebase/auth";
 

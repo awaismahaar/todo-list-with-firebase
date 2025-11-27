@@ -1,7 +1,7 @@
 import { useEffect, type ReactNode } from "react";
 import { Spinner } from "./ui/spinner";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContextProvider";
 
 const AuthRoutes = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();

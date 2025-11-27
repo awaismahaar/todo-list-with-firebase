@@ -10,9 +10,9 @@ import {
   query,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "@/firebase";
+import { db } from "@/lib/firebase";
 import TodoUI from "@/components/todo/TodoUI";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContextProvider";
 
 export interface TodoItem {
   id: string;
