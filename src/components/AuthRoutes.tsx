@@ -1,26 +1,26 @@
-import { useEffect, type ReactNode } from "react";
-import { Spinner } from "./ui/spinner";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/context/AuthContextProvider";
+import { useEffect, type ReactNode } from 'react'
+import { Spinner } from './ui/spinner'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '@/context/AuthContextProvider'
 
 const AuthRoutes = ({ children }: { children: ReactNode }) => {
-  const navigate = useNavigate();
-  const { user, loading } = useAuth();
+    const navigate = useNavigate()
+    const { user, loading } = useAuth()
 
-  useEffect(() => {
-    if (user && !loading) {
-      navigate("/");
+    useEffect(() => {
+        if (user && !loading) {
+            navigate('/')
+        }
+    }, [navigate, user, loading])
+
+    if (loading) {
+        return (
+            <div className="flex items-center justify-center h-screen">
+                <Spinner className="w-8 h-8" />
+            </div>
+        )
     }
-  }, [navigate, user, loading]);
+    return <>{children}</>
+}
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <Spinner className="w-8 h-8" />
-      </div>
-    );
-  }
-  return <>{children}</>;
-};
-
-export default AuthRoutes;
+export default AuthRoutes
