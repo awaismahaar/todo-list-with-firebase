@@ -52,7 +52,7 @@ export default function Signup() {
         try {
             const userCredential: UserCredential = await signUpEmail(
                 signUpData.email,
-                signUpData.password
+                signUpData.password,
             )
             const user = userCredential.user
             if (user) {
@@ -96,7 +96,7 @@ export default function Signup() {
                     photoURL: user.photoURL,
                     createdAt: new Date(),
                 },
-                { merge: true }
+                { merge: true },
             )
             navigate('/')
         }

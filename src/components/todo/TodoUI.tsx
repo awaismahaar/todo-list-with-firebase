@@ -71,7 +71,7 @@ const TodoUI = ({
                                                                 variant="outline"
                                                                 onClick={() =>
                                                                     editTodo(
-                                                                        task
+                                                                        task,
                                                                     )
                                                                 }
                                                                 size="icon"
@@ -81,7 +81,7 @@ const TodoUI = ({
                                                             <Button
                                                                 onClick={() =>
                                                                     deleteTodo(
-                                                                        task.id
+                                                                        task.id,
                                                                     )
                                                                 }
                                                                 variant="outline"
@@ -92,7 +92,7 @@ const TodoUI = ({
                                                             <Button
                                                                 onClick={() =>
                                                                     toggleTodo(
-                                                                        task.id
+                                                                        task.id,
                                                                     )
                                                                 }
                                                                 variant="outline"
@@ -121,7 +121,7 @@ const TodoUI = ({
                                         {
                                             tasks.filter(
                                                 (task) =>
-                                                    task.completed !== true
+                                                    task.completed !== true,
                                             ).length
                                         }{' '}
                                         pending tasks

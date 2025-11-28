@@ -34,7 +34,7 @@ const Todo = () => {
 
         const q = query(
             collection(db, 'users', user.uid, 'todos'),
-            orderBy('createdAt', 'asc')
+            orderBy('createdAt', 'asc'),
         )
 
         const unsub = onSnapshot(q, (snapshot) => {
@@ -77,7 +77,7 @@ const Todo = () => {
             try {
                 const docRef = await addDoc(
                     collection(db, 'users', user?.uid, 'todos'),
-                    newTodo
+                    newTodo,
                 )
                 if (docRef.id) {
                     toast.success('Todo successfully created!')

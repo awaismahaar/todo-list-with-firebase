@@ -15,15 +15,14 @@ export default defineConfig([
             tseslint.configs.recommended,
             reactHooks.configs.flat.recommended,
             reactRefresh.configs.vite,
-            eslintConfigPrettier
+            eslintConfigPrettier,
         ],
         languageOptions: {
             ecmaVersion: 2020,
             globals: globals.browser,
         },
         rules: {
-            'no-unused-vars': 'off',
-            'no-console': 'off',
+            'react-refresh/only-export-components': 'off',
         },
     },
 ])

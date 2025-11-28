@@ -35,7 +35,7 @@ export default function Login() {
         try {
             const userCredential = await loginEmail(
                 loginData.email,
-                loginData.password
+                loginData.password,
             )
             const user = userCredential.user
             if (user) {
@@ -68,7 +68,7 @@ export default function Login() {
                     photoURL: user.photoURL,
                     createdAt: new Date(),
                 },
-                { merge: true }
+                { merge: true },
             )
             navigate('/')
         }

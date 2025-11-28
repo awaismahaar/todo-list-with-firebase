@@ -17,7 +17,7 @@ export interface User {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
-export interface AuthContextType {
+interface AuthContextType {
     user: User | null
     setUser: (user: User | null) => void
     loading: boolean
@@ -54,7 +54,6 @@ export default function AuthContextProvider({
     )
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = (): AuthContextType => {
     const context = useContext(AuthContext)
     if (!context) {
